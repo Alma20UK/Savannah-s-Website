@@ -1,0 +1,505 @@
+body {
+    font-family: 'Inconsolata', monospace;
+}
+
+.name a {
+    text-decoration: none;
+    color: white;
+}
+
+/*
+.nameContentPage a {
+    text-decoration: none;
+    color: black;
+}
+*/
+
+.name {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 75%;
+    font-family: sofachrome, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.video-container {
+    position: absolute;
+    left: -0px;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: hidden;
+  }
+
+  .video-container video {
+    /* Make video to at least 100% wide and tall */
+    min-width: 100%; 
+    min-height: 100%; 
+  
+    /* Setting width & height to auto prevents the browser from stretching or squishing the video */
+    width: auto;
+    height: auto;
+  
+    /* Center the video */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  /* Hamburger Menu*/
+    .menu-wrap {
+      position: sticky;
+        width: 100%;
+        display: flex;
+        top: 60px;
+        left: 0px;
+        margin-top: 60px;
+        z-index: 1;
+        justify-content: center;
+    }
+
+    .menu-wrap .toggler { 
+        position: relative;
+        top: -25px;
+        left: 15px;
+        z-index: 2;
+        cursor: pointer;
+        width: 50px;
+        height: 40px;
+        opacity: 0;
+        display: flex;
+        justify-content: center; 
+        
+      }
+      .menu-wrap .hamburger {
+          position: relative;
+          top: 0;
+          left: -27px;
+          z-index: 1;
+          width: 30px;
+          height: 35px;
+          padding: 0rem;
+          opacity: 1;
+          display: flex;
+          justify-content: center;   
+      }
+
+      /*Hamburger lines*/
+
+       .menu-wrap .hamburger > div {
+           position: relative;
+           width: 100%;
+           height: 1.5px;
+           background-color: black;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           transition: all 0.4s ease;
+       }
+
+       .menu-wrap .hamburger > div:before {
+           content: '';
+           position: absolute;
+           z-index: 1;
+           top: -10px;
+           width: 100%;
+           height: 1.5px;
+           background: black;
+       }
+
+       .menu-wrap .hamburger > div:after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        width: 100%;
+        height: 1.5px;
+        background: black;
+       }
+
+       /* Toggle Animation */
+
+       .menu-wrap .toggler:checked + .hamburger > div {
+           transform: rotate(135deg);
+       }
+
+       /* Turn lines into an X */
+       
+       .menu-wrap .toggler:checked + .hamburger > div:before,
+       .menu-wrap .toggler:checked + .hamburger > div:after {
+           top: 0;
+           transform: rotate(90deg);
+       }
+
+       /* Rotate when hovering over checked */
+       .menu-wrap .toggler:checked:hover + .hamburger > div {
+           transform: rotate(225deg);
+       }
+
+       /*Menu Drop Down Styling*/
+
+       .menu-wrap .menu {
+         position: fixed;
+         top: 65px;
+         left: -18px;
+         width: 100%;
+         height: 100%;
+         visibility: hidden;
+         overflow: hidden;
+         display: flex;
+         justify-content: center;
+         text-align: center;
+       }
+
+       .menu-wrap .menu > div > div > ul > li {
+         list-style: none;
+         padding: 0.5rem;
+         color: black;
+         font-size: 100%;
+         font-weight: 600;
+       }
+
+       
+       .menu-wrap .menu > div > div > ul > li > a {
+         color: inherit;
+         text-decoration: none;
+       }
+      
+       .menu-wrap .menu > div > div > ul > li:hover {
+        font-size: 110%;
+      }
+
+       /* Expanding Menu Transition
+       .menu-wrap .menu > div > div {
+        transform: scale(0);
+        transition: all 0.3s ease;
+        transition: opacity 0.3s ease;
+       }
+       */
+
+       /* Show Menu*/
+       .menu-wrap .toggler:checked ~ .menu {
+         visibility: visible;
+       }
+       
+       /* '--' is a custom property that is like declaring a variable that you can then give a value. It is often used to avoid repition
+       Here, I have created an 'animated' property that we can subsequently give appropriate values*/
+       .menu-wrap .dropdown_menu--animated {
+         display: block;
+       }
+
+       .menu-wrap .toggler:checked ~ .menu > div > div {
+        animation: growDown 400ms ease-in-out forwards;
+        transform-origin: top center;
+         /*opacity: 1;
+         transition: opacity 0.3s ease;
+         transform: scale(1);
+         transition: 0.3s ease;
+         */
+       }
+       
+       /*here you've given the animation som e'keyframes' and essentially created the animation by stretching the box on th Y axis
+       */
+       @keyframes growDown {
+        0% {
+          transform: scaleY(0)
+        }
+        80% {
+          transform: scaleY(1.1)
+        }
+        100% {
+          transform: scaleY(1)
+        }
+      }
+
+  .nameContentPage {
+    text-align: center;
+    font-size: 130%;
+    padding-bottom: 100px;
+    padding-top: 50px;
+    margin-top: 0px;
+    margin-bottom: -50px;
+    font-family: sofachrome, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    
+  }
+
+  .anchor {
+    position: sticky;
+    top: 0;
+  }
+
+  /* Generic Video Values*/
+  .myVideo {
+    width: 75%;
+    height: auto;
+    transition: 0.3s;
+  }
+
+  .playButton {
+    position: relative;
+    display: flex;
+    top: -157px;
+    left: 33.5%;
+    border: none;
+    background: none;
+    height: 20px;
+    width: 20px;
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+  }
+
+  .playButton, img {
+    margin-left: -2px;
+    height: 40px;
+    width: auto;
+  }
+
+  .videoPopUp {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50%) scale(0);
+    transition: 0s ease-out;
+    z-index: 4;
+    background: rgba(0,0,0,1);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .playButton:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .videoPopUp.active {
+    transform: translate( -50%, -50%) scale(1);
+    transition: 0.3s ease-in;
+  }
+
+  .videoPopUp .closeButton {
+    position: absolute;
+    left: 89%;
+    top: 5%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 275%;
+    opacity: 0.7;   
+  }
+
+  .videoPopUp .closeButton:hover {
+    opacity: 1;
+  }
+
+  /* Specific Video Commands for each video*/
+
+  .converseVideo .converseVideoContainer:hover ~ .conversePlayButton {
+    opacity: 1;
+  }
+
+  .nasVideo .nasVideoContainer:hover ~ .nasPlayButton {
+    opacity: 1;
+  }
+
+  .babyKeemVideo .keemVideoContainer:hover ~ .keemPlayButton {
+    opacity: 1;
+  }
+
+  .slenderBodiesVideo .slenderVideoContainer:hover ~ .slenderPlayButton {
+    opacity: 1;
+  }
+
+  .videoPopUp .conversePopUp {
+    position: relative;
+    max-width: 75%;
+    outline: none;
+  }
+
+
+  /* Videos on the page*/
+ .container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    margin-top: 0px;
+  }
+
+  .container .rightColumn {
+    align-self: flex-end;
+    margin-top: -150px;
+    margin-right: 15px;
+  }
+
+  .container .leftColumn {
+      margin-left: 169px;
+  }
+
+  .converseVideo {
+    width: 620px;
+    height: auto;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    padding: 0px;
+    margin-left: 169px;
+    margin-top: 0px;
+  }
+
+
+  .nasVideo {
+    width: 620px;
+    height: auto;
+    margin-bottom: 10px;
+    padding: 0px;
+  }
+
+  .babyKeemVideo {
+    width: 620px;
+    height: auto;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    margin-top: -120px;
+    padding: 0px;
+  }
+
+  .slenderBodiesVideo {
+    width: 620px;
+    height: auto;
+    margin-bottom: 10px;
+    padding: 0px;
+  }
+  
+  .scribzVideo {
+    width: 620px;
+    height: auto;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    margin-top: -180px;
+    padding: 0px;
+  }
+
+  .solaVideo {
+    width: 620px;
+    height: auto;
+    align-self: flex-end;
+    margin-top: -100px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    padding: 0px;
+  }
+
+  .soulSkinVideo {
+    width: 620px;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    margin-top: -100px;
+    padding: 0px;
+  }
+
+
+  .videoTagsLeft {
+    font-size: 120%;
+    margin-left: -50px;
+  }
+
+  .videoTagsRight {
+    font-size: 120%;
+    text-align: end;
+    margin-right: 110px;
+     }
+
+  .stickyConverseText {
+      text-align: center;
+      font-size: 100%;
+      margin-bottom: 20px;
+      margin-right: 100px;
+    
+  }
+
+  .stickyTextRight {
+      text-align: right;
+      font-size: 100%;
+      margin-right: 100px;
+      margin-bottom: 20px;
+  }
+
+  .stickyTextScribz {
+    position: sticky;
+    top: 300px;
+    font-size: 100%;
+    color: grey;
+    margin-left: 100px;
+    margin-bottom: 20px;
+  }
+
+  .stickyTextSlender {
+      text-align: center;
+      font-size: 100%;
+      margin-left: -350px;
+      margin-bottom: 20px;
+  }
+  
+
+  .textAnchorScribz {
+    position: sticky;
+    top: 300px;
+    color: grey;
+  }
+
+  .textAnchorSlender {
+    position: sticky;
+    top: 350px;
+    color: grey;
+  }
+
+
+  .textAnchor {
+    position: sticky;
+    top: 100px;
+    color: grey;
+  }
+ 
+  .footer {
+    font-size: 75%;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 75px;
+  }
+
+
+  /*Photographs Page*/
+
+  .imageContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    margin-top: 300px;
+  }
+
+  .imageContainer #leftColumn {
+    margin-top: -150px;
+    margin-left: 180px;
+}
+
+.imageContainer #rightColumn {
+  align-self: flex-end;
+  margin-top: -150px;
+  margin-right: 20px;
+}
