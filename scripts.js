@@ -1,75 +1,54 @@
-let modalOpen = false; // Default to closed
+/* JavaScript required to stop popup videos audio from continuing to play after the modal has been closed */
 
-function openModal() {
-  setModal(true);
+function toggleConversePopUp() {
+  document.getElementById("popup-1").classList.toggle("active");
+  if ($('.active').length === 0) {
+    document.getElementById('myVideo').pause();
+  }
 }
 
-function closeModal() {
-  setModal(false);
+function toggleNasPopUp() {
+  document.getElementById("popup-2").classList.toggle("active");
+  if ($('.active').length === 0) {
+    document.getElementById('nasVideo').pause();
+  }
 }
 
-function toggleModal() {
-  setModal(!modalOpen);
+function toggleKeemPopUp() {
+  document.getElementById("popup-3").classList.toggle("active");
+  if ($('.active').length === 0) {
+    document.getElementById('keemVideo').pause();
+  }
 }
 
-function setModal(value) {
-  modalOpen = value;
-  document.getElementById("popup-1").classList.toggle("active", value);
-}
-
-function pauseMedia() {
-  document.querySelector('video').pause()
-}
-
-function playMedia() {}
-
-
-
-function toggleConversePopUp(){
-    document.getElementById("popup-1").classList.toggle("active");
-}
-
-function toggleNasPopUp(){
-    document.getElementById("popup-2").classList.toggle("active");
-}
-
-function toggleKeemPopUp(){
-    document.getElementById("popup-3").classList.toggle("active");
-}
-
-function toggleSlenderPopUp(){
+function toggleSlenderPopUp() {
   document.getElementById("popup-4").classList.toggle("active");
+  if ($('.active').length === 0) {
+    document.getElementById('slenderVideo').pause();
+  }
+
 }
 
+function toggleScribzPopUp() {
+  document.getElementById("popup-5").classList.toggle("active");
+  if ($('.active').length === 0) {
+    document.getElementById('scribzVideo').pause();
+  }
 
-
-
-/* Modal pop up from 'Web Dev Simplified' which I couldn't get to work. https://www.youtube.com/watch?v=MBaw_6cPmAw&t=77s
-
-const openModalButtons = document.querySelectorAll('[data-modal-target]')
-const closeModalButtons = document.querySelectorAll('[data-close-button]')
-
-openModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = document.querySelector(button.dataset.modalTarget)
-        openModalButtons(modal)
-    })
-})
-
-closeModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = document.closest('.modal')
-        closeModalButtons(modal)
-    })
-})
-
-function openModal(modal) {
-    if (modal == null) return
-    modal.classList.add('active')
 }
 
-function closeModal(modal) {
-    if (modal == null) return
-    modal.classList.remove('active')
+function toggleSolaPopUp() {
+  document.getElementById("popup-6").classList.toggle("active");
+  if ($('.active').length === 0) {
+    document.getElementById('solaVideo').pause();
+  }
+
 }
-*/
+
+function toggleSoulPopUp() {
+  document.getElementById("popup-7").classList.toggle("active");
+  if ($('.active').length === 0) {
+    document.getElementById('soulVideo').pause();
+  }
+
+}
