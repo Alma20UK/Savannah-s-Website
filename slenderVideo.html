@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Homepage</title>
+    <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="styles/style.css" rel="stylesheet">
@@ -13,21 +13,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">
-
-
+    <script defer src="Scripts/scripts.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
 </head>
 
 <body>
 
-    <div class=video-container>
-        <video autoplay muted loop playsinline>
-            <source src="Media/Nas - Rare (Official Video)_Trim.mp4" type="video/mp4">
+    <div class="videoPopUp">
+        <video class="popUp" id="myVideo" controls>
+            <source src="Media/Slenderbodies Arrival.mp4" type="video/mp4">
         </video>
+        <button class="popupPlayButton"><img src="media/play-256.png"></button>
+        <a href="films.html" class="closeButton" id="closeButton"><img src="media/closeButton.png"></a>
     </div>
 
-    <h1 class=name><a href="films.html">Savannah Setten</a></h1>
-
-    <script src="" async defer></script>
 </body>
 
 </html>
